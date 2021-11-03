@@ -3,6 +3,7 @@
 class UserStorage{
     static #users = {
         id: ["123", "1234" , "12345"],
+        name: ["123", "1234", "12345"],
         psword: ["123", "1234", "12345"],
     };
 
@@ -25,6 +26,14 @@ class UserStorage{
             return newUser;
         }, {});
         return userInfo;
+    }
+
+    static save(userInfo) {
+        const users = this.#users;
+        users.id.push(userInfo.id);
+        users.name.push(userInfo.name);
+        users.psword.push(userInfo.psword);
+        console.log(users);
     }
 }
 
